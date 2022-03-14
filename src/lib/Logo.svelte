@@ -1,6 +1,10 @@
+<script>
+    import Intro from './Intro.svelte';
+		import { fade, scale, fly, draw } from 'svelte/transition';
+</script>
 
-<!-- LOGO -->
-<svg class="logo-text z-10 relative mx-auto w-3/4 md:w-1/2" viewBox="0 0 314.75 76.5" >
+<Intro> 
+<svg class="logo-text z-10 relative mx-auto w-3/4 md:w-1/2" viewBox="0 0 314.75 76.5">
   <g id="ONEEZY" class="fill-white">
     
     <!-- Oneezy Text (Outline Half) -->
@@ -71,7 +75,12 @@
   </g>
 </svg>
 
+<a class="bg-blue-500 text-white relative rounded-full py-2 px-10" href="https://docs.google.com/document/d/1NDqi5npsdq1FuUY7Zw9jycbvrpWHxztpW-JsGTBMkig/edit" target="_blank">Portfolio</a>
+</Intro>
+
 <style>
+
+
 /* Oneezy Text
 ******************************************************/
 .logo-text  	  									  { z-index: 1; }
