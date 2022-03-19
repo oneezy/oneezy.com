@@ -1,7 +1,27 @@
+<script context="module">
+  const modules = import.meta.glob('./**.svelte');
+  let allmenu = [];
+
+  for(let path in modules) {
+    allmenu.push({
+      label: (path.replace(/^\.\//, '').replace(/\.svelte$/, '') === 'index') ? 'home' : path.replace(/^\.\//, '').replace(/\.svelte$/, ''),
+      href: (path.replace(/^\.\//, '').replace(/\.svelte$/, '') === 'index') ? '/' : path.replace(/^\.\//, '').replace(/\.svelte$/, '')
+    });
+  }
+
+  export const load = async() => {
+    const menu = await Promise.all(allmenu);
+    return { props: { menu } };
+  };
+</script>
+
 <script>
-  import Rainbow from '$lib/Rainbow.svelte';
-  import Pattern from '$lib/Pattern.svelte';
+	// import { Body, classList, style } from 'svelte-body';
+  import Theme from '$lib/Theme.svelte';
+  import BG from '$lib/BG.svelte';
+  import Logo from '$lib/Logo.svelte';
   import '../app.css';
+  export let menu;
 </script>
 
 <svelte:head>
@@ -20,9 +40,22 @@
   <meta property="fb:admins" content="1271441153" />
 </svelte:head>
 
-<Rainbow />
-<Pattern />
+<!-- <svelte:body use:classList={'bg-slate-300 dark:bg-slate-700'} /> -->
 
-<main class="flex flex-col items-center justify-center h-full">
+<BG />
+
+<main class="flex flex-col items-center justify-center h-full relative text-black dark:text-white">
+
+  <Logo />
+  
+  <nav class="flex flex-col items-center justify-center gap-4 mb-10 prose lg:prose-xl">
+    <Theme />
+    <div class="flex flex-row items-center justify-center gap-4">
+    {#each menu as item}
+      <a href={item.href} class="block text-black dark:text-white" sveltekit:prefetch sveltekit:noscroll>{item.label}</a>
+    {/each}
+    </div>
+  </nav>
+
   <slot />
 </main>
