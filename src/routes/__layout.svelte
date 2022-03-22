@@ -43,7 +43,7 @@
 
 <BG />
 
-<main class="flex flex-col justify-center h-full w-full relative text-black dark:text-white">
+<main class="flex flex-col h-screen w-full relative text-black dark:text-white overflow-x-hidden overflow-y-scroll">
   <Nav/>
   <slot />
 </main>

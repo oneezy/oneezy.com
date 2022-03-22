@@ -20,7 +20,7 @@
   ];
 </script>
 
-<nav class="flex flex-col items-center justify-center gap-4 mb-10">
+<nav class="h-screen flex flex-col items-center justify-center gap-4">
   <Logo />
   <Theme />
   <div class="flex flex-row items-center justify-center gap-4">
