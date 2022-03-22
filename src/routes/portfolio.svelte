@@ -3,8 +3,6 @@
     const res = await fetch(`https://opensheet.elk.sh/1822epRj2XCFzLaYxvEIGVkPfF8qYdAbAqWv4bnqUP8A/Portfolio`);
     const data = await res.json();
 
-    
-
     if(res.ok) {
       return {
         props: { 
@@ -27,10 +25,6 @@
         props: { portfolio: [] }
       };
     }
-
-
-    
-
   }
 </script>
 

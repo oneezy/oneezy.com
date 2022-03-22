@@ -1,3 +1,5 @@
 <script>
-  import Logo from "$lib/Logo.svelte";
+  import Hero from "$lib/Hero.svelte";
+
+  export let current = "home";
 </script>

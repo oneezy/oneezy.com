@@ -16,11 +16,10 @@
 </script>
 
 <script>
-	// import { Body, classList, style } from 'svelte-body';
-  import Theme from '$lib/Theme.svelte';
   import BG from '$lib/BG.svelte';
-  import Logo from '$lib/Logo.svelte';
+  import Nav from "$lib/Nav.svelte";
   import '../app.css';
+
   export let menu;
 </script>
 
@@ -44,18 +43,7 @@
 
 <BG />
 
-<main class="flex flex-col items-center justify-center h-full relative text-black dark:text-white">
-
-  <Logo />
-  
-  <nav class="flex flex-col items-center justify-center gap-4 mb-10 prose lg:prose-xl">
-    <Theme />
-    <div class="flex flex-row items-center justify-center gap-4">
-    {#each menu as item}
-      <a href={item.href} class="block text-black dark:text-white" sveltekit:prefetch sveltekit:noscroll>{item.label}</a>
-    {/each}
-    </div>
-  </nav>
-
+<main class="flex flex-col justify-center h-full w-full relative text-black dark:text-white">
+  <Nav/>
   <slot />
 </main>

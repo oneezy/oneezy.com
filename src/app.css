@@ -8,6 +8,6 @@
     @apply h-full;
   }
   body {
-    @apply bg-slate-300 dark:bg-slate-700;
+    @apply bg-slate-300 dark:bg-slate-700 relative overflow-x-hidden overflow-y-scroll;
   }
 }
