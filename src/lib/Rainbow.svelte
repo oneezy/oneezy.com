@@ -1,4 +1,4 @@
-<div class="w-full h-full fixed inset-0 z-0 flex items-center justify-center">
+<div class="w-full h-full fixed inset-0 z-0 flex items-center justify-center overflow-hidden">
   <section class="bg-rainbow w-[200%] h-[200%] absolute blur-2xl"></section>
 </div>
 
