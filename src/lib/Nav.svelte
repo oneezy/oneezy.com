@@ -16,6 +16,10 @@
     {
       label: 'portfolio',
       href: '/portfolio'
+    },
+    {
+      label: 'experience',
+      href: '/experience'
     }
   ];
 </script>

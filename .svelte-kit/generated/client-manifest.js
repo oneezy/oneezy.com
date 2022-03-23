@@ -4,12 +4,14 @@ export const components = [
 	() => import("..\\..\\src\\routes\\__layout.svelte"),
 	() => import("..\\runtime\\components\\error.svelte"),
 	() => import("..\\..\\src\\routes\\index.svelte"),
+	() => import("..\\..\\src\\routes\\experience.svelte"),
 	() => import("..\\..\\src\\routes\\portfolio.svelte"),
 	() => import("..\\..\\src\\routes\\about.svelte")
 ];
 
 export const dictionary = {
 	"": [[0, 2], [1]],
-	"portfolio": [[0, 3], [1]],
-	"about": [[0, 4], [1]]
+	"experience": [[0, 3], [1]],
+	"portfolio": [[0, 4], [1]],
+	"about": [[0, 5], [1]]
 };
