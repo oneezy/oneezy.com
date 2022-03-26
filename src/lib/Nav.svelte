@@ -1,9 +1,7 @@
 <script>
-  import Logo from "$lib/Logo.svelte";
-  import Theme from "$lib/Theme.svelte";
+  import { page } from '$app/stores';
 
 	export let current = 'home';
-
   export let menu = [
     {
       label: 'home',
@@ -22,36 +20,20 @@
       href: '/experience'
     }
   ];
+  
+	let className;
+	export { className as class };
 </script>
 
-<nav class="h-screen flex flex-col items-center justify-center gap-4">
-  <Logo />
-  <Theme />
-  <div class="flex flex-row items-center justify-center gap-4">
+<nav class={`${className}`}>
+  <div class="flex flex-row items-center justify-center gap-4 capitalize">
     {#each menu as link}
-      <a 
-        href="{link.href}" 
-        class="block text-black dark:text-white font-semibold text-xl" 
-        class:selected="{current === link.label}" 
-        on:click="{() => current = link.label}"
-        sveltekit:prefetch 
-        sveltekit:noscroll
-      >
-        {link.label}
+      <a on:click="{() => current = link.label}"
+         href="{link.href}" 
+         class="block text-black dark:text-white font-semibold text-xl {$page.url.pathname === link.href ? 'bg-blue-500 text-white' : ''}" 
+         sveltekit:prefetch 
+         sveltekit:noscroll>{link.label}
       </a>
     {/each}
   </div>
 </nav>
-
-<style>
-	button {
-    background-color: white;
-    color: black;
-		display: block;
-	}
-
-	.selected {
-		background-color: #ff3e00;
-		color: white;
-	}
-</style>

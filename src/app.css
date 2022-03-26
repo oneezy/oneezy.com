@@ -5,9 +5,6 @@
 
 @layer base {
   html, body {
-    @apply h-full overflow-hidden;
-  }
-  body {
-    @apply bg-slate-300 dark:bg-slate-700 relative overflow-hidden;
+    @apply h-full;
   }
 }

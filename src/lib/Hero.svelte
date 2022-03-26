@@ -1,10 +1,11 @@
 <script>
-  import Logo from "$lib/Logo.svelte";
+  import Logo from "$lib/Logo/Logo.svelte";
+  import Theme from "$lib/Theme.svelte";
   import Nav from "$lib/Nav.svelte";
-
-  export let current = "home";
 </script>
 
-<div class="h-screen w-full flex flex-col items-center justify-center">
-  <Nav {current}/>
+<div class="container h-screen w-full mx-auto flex flex-col items-center justify-center">
+  <Logo />
+  <Theme />
+  <Nav />
 </div>

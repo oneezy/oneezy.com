@@ -1,31 +1,5 @@
-<script context="module">
-  const modules = import.meta.glob('./**.svelte');
-  let allmenu = [];
-
-  for(let path in modules) {
-    allmenu.push({
-      label: (path.replace(/^\.\//, '').replace(/\.svelte$/, '') === 'index') ? 'home' : path.replace(/^\.\//, '').replace(/\.svelte$/, ''),
-      href: (path.replace(/^\.\//, '').replace(/\.svelte$/, '') === 'index') ? '/' : path.replace(/^\.\//, '').replace(/\.svelte$/, '')
-    });
-  }
-
-  export const load = async() => {
-    const menu = await Promise.all(allmenu);
-    return { props: { menu } };
-  };
-</script>
-
-<script>
-  import BG from '$lib/BG.svelte';
-  import Nav from "$lib/Nav.svelte";
-  import '../app.css';
-
-  export let menu;
-</script>
-
 <svelte:head>
   <title>Oneezy.com</title>
-
   <meta name="theme-color" content="#000000">
 
   <!-- FACESPACE -->
@@ -39,11 +13,28 @@
   <meta property="fb:admins" content="1271441153" />
 </svelte:head>
 
-<!-- <svelte:body use:classList={'bg-slate-300 dark:bg-slate-700'} /> -->
+<script>
+  import { page } from '$app/stores';
+  import { fly } from 'svelte/transition';
+  import BG from '$lib/BG/BG.svelte';
+  import Header from '$lib/Header.svelte';
+  // import Footer from '$lib/Footer.svelte';
+
+  let header;
+  import '../app.css';
+</script>
+
 
 <BG />
 
-<main class="flex flex-col h-screen w-full relative text-black dark:text-white overflow-x-hidden overflow-y-scroll">
-  <Nav/>
+{#if $page.url.pathname != '/' }
+  <Header {header} />
+{/if}
+
+<main 
+  id="{ $page.routeId == '' ? 'home' : $page.routeId }"
+  class:pt-56={ $page.url.pathname != '/' }
+  class="h-full w-full">
   <slot />
 </main>
+<!-- <Footer /> -->

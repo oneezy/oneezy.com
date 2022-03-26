@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
 		<link rel="icon" href="%svelte.assets%/favicon.png" />
+		<meta name="theme-color" content="blue" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="red" media="(prefers-color-scheme: dark)" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if ( localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
 		%svelte.head%
 	</head>
-	<body>
-		%svelte.body%
+	<body class="bg-slate-300 dark:bg-slate-700 text-black dark:text-white relative">
+    <div id="svelte" class="h-full">%svelte.body%</div>
 	</body>
 </html>

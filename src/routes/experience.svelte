@@ -24,7 +24,7 @@
 </script>
 
 <script>
-  import {fly} from 'svelte/transition';
+  import { fly } from 'svelte/transition';
   export let experience;
 </script>
 
@@ -34,7 +34,7 @@
     <h1 class="text-4xl pb-10 text-black dark:text-white relative mx-auto text-center">Experience</h1>
   </div>
 
-  <div class="experience container prose lg:prose-xl mx-auto grid grid-cols-1 mt-10 mb-20">
+  <div class="experience container mx-auto prose lg:prose-xl grid grid-cols-1 mt-10 mb-20">
     {#each experience as company}
       {#if company.company }
   

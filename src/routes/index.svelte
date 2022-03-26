@@ -1,5 +1,5 @@
 <script>
-  import Hero from "$lib/Hero.svelte";
-
-  export let current = "home";
+  import Hero from '$lib/Hero.svelte';
 </script>
+
+<Hero />

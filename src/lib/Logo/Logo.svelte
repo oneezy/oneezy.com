@@ -1,5 +1,5 @@
 <script>
-    import Intro from './Intro.svelte';
+    import Intro from '$lib/Intro.svelte';
 	  import classes from 'svelte-transition-classes';
 		import { fade, scale, fly, draw } from 'svelte/transition';
 </script>
