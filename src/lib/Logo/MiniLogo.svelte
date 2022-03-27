@@ -1,10 +1,9 @@
 <script>
-	let className;
-	export { className as class };
+	let CLASS;
+	export { CLASS as class };
 </script>
 
-<svg 
-class={`${className}`} viewBox="0 0 314.75 76.5">
+<svg class={`${CLASS}`} viewBox="0 0 314.75 76.5">
   <g id="ONEEZY">
     
     <!-- Oneezy Text (Half Fill) -->

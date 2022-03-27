@@ -22,12 +22,12 @@
 		}
 	}
 
-	let className;
-	export { className as class };
+	let CLASS;
+	export { CLASS as class };
 </script>
 
 <button
-  class={`${className} flex items-center justify-center h-9 w-9 transition-all hover:ring-2`}
+  class={`${CLASS} flex items-center justify-center h-9 w-9 transition-all hover:ring-2`}
   aria-label="Toggle Dark Mode"
   aria-live="polite"
   on:click={toggleDarkMode}>

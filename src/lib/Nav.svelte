@@ -21,11 +21,11 @@
     }
   ];
   
-	let className;
-	export { className as class };
+	let CLASS;
+	export { CLASS as class };
 </script>
 
-<nav class={`${className}`}>
+<nav class={`${CLASS}`}>
   <div class="flex flex-row items-center justify-center gap-4 capitalize">
     {#each menu as link}
       <a on:click="{() => current = link.label}"
