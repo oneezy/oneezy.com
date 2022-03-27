@@ -18,7 +18,6 @@
 </script>
 
 <script>
-  import { Svrollbar } from 'svrollbar';
   import { page } from '$app/stores';
   import BG from '$lib/BG/BG.svelte';
   import Header from '$lib/Header.svelte';
