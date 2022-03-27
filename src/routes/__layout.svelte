@@ -20,6 +20,7 @@
 <script>
   import { page } from '$app/stores';
   import BG from '$lib/BG/BG.svelte';
+  import Scrollbar from '$lib/Scrollbar.svelte';
   import Header from '$lib/Header.svelte';
   import Transition from '$lib/Transition.svelte';
   export let url;
@@ -29,6 +30,7 @@
 </script>
 
 <BG />
+<Scrollbar />
 
 {#if $page.url.pathname != '/' }
   <Header {header} />

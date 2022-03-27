@@ -17,11 +17,12 @@ specifiers:
   svelte-dark-mode: ^2.1.0
   svelte-preprocess: ^4.10.1
   svelte-transition-classes: ^0.1.1
+  svrollbar: ^0.10.5
   tailwindcss: ^3.0.12
 
 devDependencies:
   '@sveltejs/adapter-auto': 1.0.0-next.33
-  '@sveltejs/kit': 1.0.0-next.301_svelte@3.46.4
+  '@sveltejs/kit': 1.0.0-next.303_svelte@3.46.4
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
   autoprefixer: 10.4.2_postcss@8.4.8
   eslint: 7.32.0
@@ -36,6 +37,7 @@ devDependencies:
   svelte-dark-mode: 2.1.0
   svelte-preprocess: 4.10.4_33233005e4be8b4492b63cc9de0a2fd4
   svelte-transition-classes: 0.1.1
+  svrollbar: 0.10.5
   tailwindcss: 3.0.23_autoprefixer@10.4.2
 
 packages:
@@ -153,8 +155,8 @@ packages:
       esbuild: 0.14.25
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.301_svelte@3.46.4:
-    resolution: {integrity: sha512-F/XP1VEu+fpvgY04JekNxAFupccNMKOyXtbox0LwNJvBulL15/Tzy6tf4g+9t2Jy7mprwI3h0ZC9G/nVujRFnQ==}
+  /@sveltejs/kit/1.0.0-next.303_svelte@3.46.4:
+    resolution: {integrity: sha512-WdxDc8OiF1WEd/bEza7CBdzA+3qIcCi1GKBj/gieKX9I3N8iDJt/Cg2POrLo9wQoJ47nZcAd1eOhfr7XEX1aIQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -1695,6 +1697,10 @@ packages:
   /svelte/3.46.4:
     resolution: {integrity: sha512-qKJzw6DpA33CIa+C/rGp4AUdSfii0DOTCzj/2YpSKKayw5WGSS624Et9L1nU1k2OVRS9vaENQXp2CVZNU+xvIg==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /svrollbar/0.10.5:
+    resolution: {integrity: sha512-6I25pAolLYGNatYSahXMnm3eSPOtJq2YR/QxZ6NV/S+F4fDpunHL38gheqajCspLTkO1L7K3HuNED8jlTk+x/Q==}
     dev: true
 
   /table/6.8.0:

@@ -2,6 +2,7 @@
   import MiniLogo from "$lib/Logo/MiniLogo.svelte";
   import Theme from "$lib/Theme.svelte";
   import Nav from "$lib/Nav.svelte";
+  import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
   
   export let header;
@@ -22,7 +23,9 @@
 
 <svelte:window on:scroll={handleScroll} />
 
-<header bind:clientHeight={header} 
+<header in:fly={{ x: -50, duration: 500, delay: 500}} 
+        out:fly={{ duration: 500, delay: 500}}
+        bind:clientHeight={header} 
         style:transform={direction === 'down' ? `translateY(-${header}px)` : 'translateY(0px)'}
         class="py-4 text-black dark:text-white fixed top-0 left-0 right-0 z-10">
 
