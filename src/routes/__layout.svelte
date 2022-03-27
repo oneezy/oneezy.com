@@ -13,17 +13,21 @@
   <meta property="fb:admins" content="1271441153" />
 </svelte:head>
 
+<script context="module">
+  export const load = async ({ url }) => ({ props: { url } });
+</script>
+
 <script>
+  import { Svrollbar } from 'svrollbar';
   import { page } from '$app/stores';
-  import { fly } from 'svelte/transition';
   import BG from '$lib/BG/BG.svelte';
   import Header from '$lib/Header.svelte';
-  // import Footer from '$lib/Footer.svelte';
+  import Transition from '$lib/Transition.svelte';
+  export let url;
 
   let header;
   import '../app.css';
 </script>
-
 
 <BG />
 
@@ -31,10 +35,9 @@
   <Header {header} />
 {/if}
 
-<main 
-  id="{ $page.routeId == '' ? 'home' : $page.routeId }"
-  class:pt-56={ $page.url.pathname != '/' }
-  class="h-full w-full">
+<Transition 
+  {url}
+  id="{ $page.routeId == '' ? 'home' : $page.routeId }" 
+  class="{ $page.url.pathname != '/' ? 'py-56' : '' }">
   <slot />
-</main>
-<!-- <Footer /> -->
+</Transition>
