@@ -18,22 +18,32 @@
 </script>
 
 <script>
+	import { screenH, scrollY, scrollDir, scrollUp, scrollDown, scrollTop, scrollBottom } from '$stores/device.js';
   import { page } from '$app/stores';
+  import Device from '$lib/Device.svelte';
   import BG from '$lib/BG/BG.svelte';
   import Scrollbar from '$lib/Scrollbar.svelte';
   import Header from '$lib/Header.svelte';
   import Transition from '$lib/Transition.svelte';
+  import MiniLogo from "$lib/Logo/MiniLogo.svelte";
+  import Theme from "$lib/Theme.svelte";
+  import Nav from "$lib/Nav.svelte";
   export let url;
+  let device;
 
-  let header;
   import '../app.css';
 </script>
 
+<Device device="hidden" /> 
 <BG />
 <Scrollbar />
 
 {#if $page.url.pathname != '/' }
-  <Header {header} />
+  <Header class="flex items-center justify-center z-10"> 
+    <a href="/" class="flex-1 h-8"><MiniLogo class="h-10 absolute" /></a>
+    <Nav class="flex-1 flex items-center justify-center" />
+    <section class="flex-1 flex items-center justify-end"><Theme /></section>
+  </Header>
 {/if}
 
 <Transition 
