@@ -18,6 +18,7 @@
 </script>
 
 <script>
+	import { mediaQuery } from '$stores/media';
 	import { screenH, scrollY, scrollDir, scrollUp, scrollDown, scrollTop, scrollBottom } from '$stores/device.js';
   import { page } from '$app/stores';
   import Device from '$lib/Device.svelte';
@@ -31,6 +32,7 @@
   export let url;
   let device;
 
+	const sm = mediaQuery('(min-width: 0px) and (max-width: 767px)');
   import '../app.css';
 </script>
 
@@ -39,10 +41,16 @@
 <Scrollbar />
 
 {#if $page.url.pathname != '/' }
-  <Header class="flex items-center justify-center z-10"> 
-    <a href="/" class="flex-1 h-8"><MiniLogo class="h-10 absolute" /></a>
-    <Nav class="flex-1 flex items-center justify-center" />
-    <section class="flex-1 flex items-center justify-end"><Theme /></section>
+  <Header class="container mx-auto w-11/12 max-w-screen-xl py-4 px-12 flex items-center justify-between z-10"> 
+    {#if $sm}
+      <a href="/" class="flex-1 h-8 text-center items-center flex justify-center"><MiniLogo class="h-10 absolute" /></a>
+    {/if}
+
+    {#if !$sm}
+      <a href="/" class="flex-1 h-8"><MiniLogo class="h-10 absolute" /></a>
+      <Nav class="flex-1 flex items-center justify-center" /> 
+      <section class="flex-1 flex items-center justify-end"><Theme /></section>
+    {/if}
   </Header>
 {/if}
 
