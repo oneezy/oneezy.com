@@ -21,16 +21,16 @@
     }
   ];
   
-	let CLASS;
+	let CLASS = '';
 	export { CLASS as class };
 </script>
 
 <nav class={`${CLASS}`}>
-  <div class="flex flex-row items-center justify-center gap-4 capitalize">
+  <div class="flex flex-row items-center justify-center capitalize">
     {#each menu as link}
       <a on:click="{() => current = link.label}"
          href="{link.href}" 
-         class="block text-black dark:text-white font-semibold text-xl {$page.url.pathname === link.href ? 'bg-blue-500 text-white' : ''}" 
+         class="flex items-center justify-center font-semibold text-xl rounded-full py-2 px-6 {$page.url.pathname === link.href ? 'active dark:bg-white dark:text-black bg-black text-white' : 'text-black dark:text-white'}" 
          sveltekit:prefetch 
          sveltekit:noscroll>{link.label}
       </a>
