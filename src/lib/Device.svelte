@@ -17,7 +17,7 @@
 />
 	
 	{#if device == 'stats'}
-	<div class="bg-black text-white rounded-md p-6 fixed top-20 w-3/4 md:w-1/2">
+	<div class="bg-black text-white rounded-md p-6 fixed bottom-20 right-20 z-10 w-96">
 		<h3 class="text-2xl font-semibold border-b mb-1 pb-1">Device Stats</h3>
 		<ul class="flex flex-col items-start justify-centerlist-none mb-8">
 			<li><b>screenH: </b><i>{$screenH}</i></li>

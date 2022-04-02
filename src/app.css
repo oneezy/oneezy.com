@@ -9,7 +9,7 @@
     touch-action: manipulation;
   }
   html, body {
-    @apply min-h-full;
+    /* @apply min-h-full; */
   }
 
   button, textarea, input, select, a {

@@ -14,32 +14,39 @@
 	export { CLASS as class };
 	
 	export let headerHeight = ''; 
-	 
-	// onMount(() => { 
-  //   if ($page.url.pathname != '/') {
-	// 	  document.body.style.paddingTop = `${headerHeight}px`;
-  //   } else {
-  //     document.body.style.paddingTop = '0px';
-  //   }
-	// })
-
   let headerClass = 'rounded-full left-0 right-0 top-6 z-10';
 </script>
 
-<Device device="hidden" /> 
+<!-- <Device device="stats" />  -->
 
 
 <!-- Top --> 
-{#if ( ($scrollY > headerHeight) && ($scrollUp) )}
-<header in:fly="{{ y: -(headerHeight*2), opacity: 1 }}" out:fly="{{ y: -(headerHeight*2), opacity: 1 }}" bind:clientHeight={headerHeight} 
-      class="{`${CLASS} ${headerClass} `} fixed border-4 border-black bg-black/80 dark:from-white dark:bg-white/70 backdrop-blur-lg">
+{#if ( (!$scrollUp) && (!$scrollDown) )}
+  <header in:fly={{ x: -40, duration: 500, delay: 500 }} 
+          out:fly={{ duration: 500, delay: 500 }}
+          bind:clientHeight={headerHeight} 
+          class="{`${CLASS} ${headerClass} `} absolute">
 
-      <slot /> 
-</header>
+          <slot /> 
+  </header>
+
+<!-- Top --> 
+{:else if ( ($scrollY > headerHeight) && ($scrollUp) )}
+  <header in:fly="{{ y: -(headerHeight*2), opacity: 1 }}" 
+          out:fly="{{ y: -(headerHeight*2), opacity: 1 }}" 
+          bind:clientHeight={headerHeight} 
+          class="{`${CLASS} ${headerClass} `} fixed border-4 border-black bg-black/80 dark:from-white dark:bg-white/70 backdrop-blur-lg">
+
+          <slot /> 
+  </header>
 
 <!-- Everything else... -->
 {:else}
-<header in:fade out:fade bind:clientHeight={headerHeight} class="{`${CLASS} ${headerClass} `} absolute">
-  <slot />
-</header>
+  <header in:fade 
+          out:fade 
+          bind:clientHeight={headerHeight} 
+          class="{`${CLASS} ${headerClass} `} absolute">
+
+          <slot />
+  </header>
 {/if}

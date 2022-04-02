@@ -1,5 +1,6 @@
 <script>
   import { page } from '$app/stores';
+	import { scrollUp, scrollDown } from '$stores/device.js';
 
 	export let current = 'home';
   export let menu = [
@@ -23,16 +24,23 @@
   
 	let CLASS = '';
 	export { CLASS as class };
+
+  function resetScroll() {
+    // scrollUp.set(false);
+  }
+  
 </script>
 
 <nav class={`${CLASS}`}>
   <div class="flex flex-row items-center justify-center capitalize">
     {#each menu as link}
       <a on:click="{() => current = link.label}"
+         on:click={resetScroll}
          href="{link.href}" 
          class="flex items-center justify-center font-semibold text-xl rounded-full py-2 px-6 {$page.url.pathname === link.href ? 'active dark:bg-white dark:text-black bg-black text-white' : 'text-black dark:text-white'}" 
-         sveltekit:prefetch 
-         sveltekit:noscroll>{link.label}
+         sveltekit:prefetch>
+         <!-- sveltekit:noscroll> -->
+         {link.label}
       </a>
     {/each}
   </div>

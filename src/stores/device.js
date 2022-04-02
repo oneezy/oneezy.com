@@ -5,7 +5,7 @@ import { writable, derived } from 'svelte/store';
 export const screenH = writable(0)
 export const screenW = writable(0)
 export const scrollY = writable(0)
-export const mouse = writable({ x: 0, y: 0 })
+export const mouse   = writable({ x: 0, y: 0 })
 
 let prevY;
 let prevUpY; 
