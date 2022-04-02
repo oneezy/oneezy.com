@@ -5,6 +5,9 @@
 
 
 @layer base {
+  html {
+    touch-action: manipulation;
+  }
   html, body {
     @apply min-h-full;
   }
