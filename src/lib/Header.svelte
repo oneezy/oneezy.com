@@ -25,7 +25,7 @@
   <header in:fly={{ x: -40, duration: 500, delay: 500 }} 
           out:fly={{ duration: 500, delay: 500 }}
           bind:clientHeight={headerHeight} 
-          class="{`${CLASS} ${headerClass} `} absolute">
+          class="{`${CLASS} ${headerClass}`} absolute">
 
           <slot /> 
   </header>
@@ -35,7 +35,7 @@
   <header in:fly="{{ y: -(headerHeight*2), opacity: 1 }}" 
           out:fly="{{ y: -(headerHeight*2), opacity: 1 }}" 
           bind:clientHeight={headerHeight} 
-          class="{`${CLASS} ${headerClass} `} fixed border-4 border-black bg-black/80 dark:from-white dark:bg-white/70 backdrop-blur-lg">
+          class="{`${CLASS} ${headerClass}`} active fixed">
 
           <slot /> 
   </header>
@@ -45,8 +45,13 @@
   <header in:fade 
           out:fade 
           bind:clientHeight={headerHeight} 
-          class="{`${CLASS} ${headerClass} `} absolute">
+          class="{`${CLASS} ${headerClass}`} absolute">
 
           <slot />
   </header>
 {/if}
+
+<style>
+
+
+</style>

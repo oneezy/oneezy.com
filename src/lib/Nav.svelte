@@ -32,7 +32,7 @@
 </script>
 
 <nav class={`${CLASS}`}>
-  <div class="flex flex-row items-center justify-center capitalize">
+  <div class="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-0 capitalize">
     {#each menu as link}
       <a on:click="{() => current = link.label}"
          on:click={resetScroll}

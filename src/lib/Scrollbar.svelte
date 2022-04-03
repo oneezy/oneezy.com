@@ -67,6 +67,7 @@
   :global(html.dark .v-thumb) { 
     border: 1px solid white;
     backdrop-filter: blur(20px) brightness(1500%);
+    /* backdrop-filter: blur(10px) saturate(200%) brightness(200%); */
     -webkit-backdrop-filter: blur(20px) brightness(1500%); 
   }
 </style>

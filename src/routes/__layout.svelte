@@ -25,6 +25,7 @@
   import BG from '$lib/BG/BG.svelte';
   import Scrollbar from '$lib/Scrollbar.svelte';
   import Header from '$lib/Header.svelte';
+  import Menu from '$lib/Menu.svelte';
   import Transition from '$lib/Transition.svelte';
   import MiniLogo from "$lib/Logo/MiniLogo.svelte";
   import Theme from "$lib/Theme.svelte";
@@ -33,20 +34,26 @@
   let device;
 
 	const sm = mediaQuery('(min-width: 0px) and (max-width: 767px)');
+	const md = mediaQuery('(min-width: 0px) and (max-width: 1024px)');
   import '../app.css';
 </script>
 
 <Device device="hidden" /> 
 <BG />
-<Scrollbar />
+
+{#if !$md}
+  <Scrollbar />
+{/if}
 
 {#if $page.url.pathname != '/' }
   <Header class="container mx-auto w-11/12 max-w-screen-xl py-4 px-12 flex items-center justify-between z-10"> 
-    {#if $sm}
-      <a href="/" class="flex-1 h-8 text-center items-center flex justify-center"><MiniLogo class="h-10 absolute" /></a>
+    {#if $md}
+      <div><Menu /></div>
+      <a href="/" class="flex-1 h-8 text-center items-center flex justify-center relative"><MiniLogo class="h-10 absolute top-0" /></a>
+      <div><Theme /></div>
     {/if}
 
-    {#if !$sm}
+    {#if !$md}
       <a href="/" class="flex-1 h-8"><MiniLogo class="h-10 absolute" /></a>
       <Nav class="flex-1 flex items-center justify-center" /> 
       <section class="flex-1 flex items-center justify-end"><Theme /></section>
