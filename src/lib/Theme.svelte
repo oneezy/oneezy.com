@@ -48,7 +48,7 @@
 
   {#if isDark}
     <img in:scale="{{ duration: 400, start: 0, end: 1, opacity: 1 }}"  
-         class="absolute sun invert" 
+         class="absolute sun" 
          src="icons/sun.svg" 
          alt="Light Mode" />
 

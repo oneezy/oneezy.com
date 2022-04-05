@@ -24,63 +24,29 @@
 }
 
 @layer components {
+
+  /* Header */
+  html header > div { border-radius: 100px; }
+  html header > div * {  }
+
+  html.dark header > div {  }
+  html.dark header > div * { filter: invert(1); }
+
+  /* Active Header */
+  html header.active > div { background: black; border-radius: 100px; }
+  html header.active > div * { filter: invert(1); }
+
+  html.dark header.active > div { background: white; border-radius: 100px; }
+  html.dark header.active > div * { filter: invert(1); }
+/*   
+  html header.active > div { background: black; border-radius: 100px; }
+  html header.active > div * { filter: invert(1); }
   
-  /* Light Mode
-  ************************************************************/
-  html header.active {  
-    background-color: black;
-  }
-  /* logo */
-  html header.active .logo > g > g {
-    fill: white;
-  }
-  /* links */
-  html header.active nav a {
-    color: white;
-  }
-  /* links (active) */
-  html header.active nav a.active {
-    background-color: white;
-    color: black;
-  }
-  /* theme */
-  html header.active .sun-moon img {
-    filter: invert(1);
-  }
-
-  /* Dark Mode
-  ************************************************************/
-  /* header */
-  html.dark header.active {
-    background-color: unset;
-    background-image: 
-      linear-gradient(-20deg,
-        rgba(255, 255, 255, 1),
-        rgba(255, 255, 255, .65) 40%, 
-        rgba(255, 255, 255, .65) 60%, 
-        rgba(255, 255, 255, 1)
-      );
-    backdrop-filter: blur(10px) brightness(200%);
-    -webkit-backdrop-filter: blur(10px) brightness(200%); 
-  }
-
-  /* logo */
-  html.dark header.active .logo > g > g {
-    fill: black;
-  }
-  /* links */
-  html.dark header.active nav a {
-    color: black;
-  }
-  /* links (active) */
-  html.dark header.active nav a.active {
-    background-color: black;
-    color: white;
-  }
-  /* theme */
-  html.dark header.active .sun-moon img {
-    filter: invert(0);
-  }
+  html.dark header.active > div { background: white; }
+  html.dark header.active > div * { filter: unset; }
+  html.dark header.active > div a { color: black; }
+  html.dark header.active > div a.active { background: black; color: white; }
+  
+  html.dark header > div a { color: white; }
+  html.dark header > div a.active { background: black; color: white; } */
 }
-
-

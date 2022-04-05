@@ -11,7 +11,7 @@
   aria-live="polite">
 
   {#if isDark}
-    <img class="absolute sun invert" 
+    <img class="absolute sun" 
          src="icons/menu-2.svg" 
          alt="Menu Buton" />
 

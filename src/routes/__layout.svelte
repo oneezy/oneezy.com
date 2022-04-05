@@ -24,10 +24,10 @@
   import Device from '$lib/Device.svelte';
   import BG from '$lib/BG/BG.svelte';
   import Scrollbar from '$lib/Scrollbar.svelte';
-  import Header from '$lib/Header.svelte';
+  import Header from '$lib/Header/Header.svelte';
   import Menu from '$lib/Menu.svelte';
   import Transition from '$lib/Transition.svelte';
-  import MiniLogo from "$lib/Logo/MiniLogo.svelte";
+  import Icon from "$lib/Logo/Icon.svelte";
   import Theme from "$lib/Theme.svelte";
   import Nav from "$lib/Nav.svelte";
   export let url;
@@ -46,19 +46,21 @@
 {/if}
 
 {#if $page.url.pathname != '/' }
-  <Header class="container mx-auto w-11/12 max-w-screen-xl py-4 px-12 flex items-center justify-between z-10"> 
+
     {#if $md}
-      <div><Menu /></div>
-      <a href="/" class="flex-1 h-8 text-center items-center flex justify-center relative"><MiniLogo class="h-10 absolute top-0" /></a>
-      <div><Theme /></div>
+    <Header>
+      <Menu slot="left" />
+      <Icon slot="center" />
+      <Theme slot="right" />
+    </Header>
+    {:else}
+    <Header>
+      <Icon slot="left" />
+      <Nav slot="center" />
+      <Theme slot="right" />
+    </Header>
     {/if}
 
-    {#if !$md}
-      <a href="/" class="flex-1 h-8"><MiniLogo class="h-10 absolute" /></a>
-      <Nav class="flex-1 flex items-center justify-center" /> 
-      <section class="flex-1 flex items-center justify-end"><Theme /></section>
-    {/if}
-  </Header>
 {/if}
 
 <Transition 
