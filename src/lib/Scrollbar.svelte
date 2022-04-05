@@ -2,7 +2,8 @@
   import { Svrollbar, Svroller } from 'svrollbar';
 </script>
 
-<Svrollbar initiallyVisible={true} />
+<Svrollbar />
+<!-- <Svrollbar initiallyVisible={true} /> -->
 <!-- <Svrollbar alwaysVisible={true} /> -->
 
 <style>

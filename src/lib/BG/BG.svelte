@@ -9,7 +9,7 @@
 </script>
 
 
-<div class="w-full h-full fixed inset-0 -z-10">
+<div class="w-full h-full fixed inset-0 -z-10 dark:bg-slate-700/60">
   <!-- Rainbow -->
   <Rainbow />
 

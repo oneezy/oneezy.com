@@ -25,6 +25,7 @@
   import BG from '$lib/BG/BG.svelte';
   import Scrollbar from '$lib/Scrollbar.svelte';
   import Header from '$lib/Header/Header.svelte';
+	import HeaderContainer from '$lib/Header/HeaderContainer.svelte';
   import Menu from '$lib/Menu.svelte';
   import Transition from '$lib/Transition.svelte';
   import Icon from "$lib/Logo/Icon.svelte";
@@ -47,19 +48,21 @@
 
 {#if $page.url.pathname != '/' }
 
-    {#if $md}
-    <Header>
-      <Menu slot="left" />
-      <Icon slot="center" />
-      <Theme slot="right" />
+    <Header class="p-2 md:p-4">
+      {#if $md}
+      <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
+        <Menu slot="left" />
+        <Icon slot="center" />
+        <Theme slot="right" />
+      </HeaderContainer>
+      {:else}
+      <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
+        <Icon slot="left" />
+        <Nav slot="center" />
+        <Theme slot="right" />
+      </HeaderContainer>
+      {/if}
     </Header>
-    {:else}
-    <Header>
-      <Icon slot="left" />
-      <Nav slot="center" />
-      <Theme slot="right" />
-    </Header>
-    {/if}
 
 {/if}
 

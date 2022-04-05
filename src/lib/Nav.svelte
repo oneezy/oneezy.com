@@ -31,7 +31,7 @@
     <a on:click="{() => current = link.label}"
         href="{link.href}" 
         class="flex items-center justify-center font-semibold text-xl rounded-full py-2 px-6 
-        {$page.url.pathname === link.href ? 'active bg-black text-white' : 'text-black dark:text-white'}"
+        {$page.url.pathname === link.href ? 'active bg-black text-white dark:bg-white dark:text-black' : 'text-black dark:text-white'}"
         
         sveltekit:prefetch>
         <!-- sveltekit:noscroll> -->

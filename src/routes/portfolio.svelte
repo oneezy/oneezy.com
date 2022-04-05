@@ -29,7 +29,7 @@
   <h1 class="text-black dark:text-white pb-10 relative mx-auto text-center">Portfolio</h1>
 </div>
 
-<div class="portfolio-projects container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+<div class="portfolio-projects container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {#each portfolio as project}
     {#if project.view == 'FEATURED' }
 

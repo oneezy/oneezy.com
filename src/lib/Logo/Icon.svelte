@@ -3,6 +3,6 @@
 	export { CLASS as class };
 </script>
 
-<a href="/" class="w-48 h-8 inline-block { CLASS || '' }">
-  <img src="/logo.svg" class="block" alt="Oneezy Logo">
+<a href="/" class="w-full h-6 md:h-9 inline-block dark:invert { CLASS || '' }">
+  <img src="/logo.svg" class="w-full h-8 md:h-12" alt="Oneezy Logo">
 </a>

@@ -5,6 +5,7 @@
 </script>
 
 <Intro> 
+  <h1 class="sr-only">Oneezy</h1>
   <svg class="logo-text z-10 relative mx-auto w-3/4 md:w-1/2" viewBox="0 0 314.75 76.5">
     <g id="ONEEZY">
       
@@ -67,4 +68,6 @@
       </g>
     </g>
   </svg>
+
+  <h2 class="sr-only">Frontend Developer</h2>
 </Intro>

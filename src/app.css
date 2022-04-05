@@ -25,28 +25,7 @@
 
 @layer components {
 
-  /* Header */
-  html header > div { border-radius: 100px; }
-  html header > div * {  }
-
-  html.dark header > div {  }
-  html.dark header > div * { filter: invert(1); }
-
   /* Active Header */
-  html header.active > div { background: black; border-radius: 100px; }
-  html header.active > div * { filter: invert(1); }
-
-  html.dark header.active > div { background: white; border-radius: 100px; }
-  html.dark header.active > div * { filter: invert(1); }
-/*   
-  html header.active > div { background: black; border-radius: 100px; }
-  html header.active > div * { filter: invert(1); }
-  
-  html.dark header.active > div { background: white; }
-  html.dark header.active > div * { filter: unset; }
-  html.dark header.active > div a { color: black; }
-  html.dark header.active > div a.active { background: black; color: white; }
-  
-  html.dark header > div a { color: white; }
-  html.dark header > div a.active { background: black; color: white; } */
+  html header.active > .header-container { background: white; filter: invert(1); }
+  html.dark header.active > .header-container { background: black; filter: invert(1); }
 }
