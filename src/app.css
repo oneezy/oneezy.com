@@ -26,6 +26,6 @@
 @layer components {
 
   /* Active Header */
-  html header.active > .header-container { background: white; filter: invert(1); }
-  html.dark header.active > .header-container { background: black; filter: invert(1); }
+  html:not(.nav-open) header.active > .header-container { background: white; filter: invert(1); }
+  html.dark:not(.nav-open) header.active > .header-container { background: black; filter: invert(1); }
 }

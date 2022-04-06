@@ -48,7 +48,7 @@
 
 {#if $page.url.pathname != '/' }
 
-    <Header class="p-2 md:p-4">
+    <Header class="p-4 md:p-8">
       {#if $md}
       <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
         <Menu slot="left" />
