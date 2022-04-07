@@ -6,10 +6,7 @@
     if(res.ok) {
       return {
         props: { 
-          test: data,
-          portfolio: data.filter(item => item.hidden !== 'TRUE'),
-          hidden: data.filter(item => item.hidden === 'TRUE'),
-          featured: data.filter(item => item.featured === 'TRUE'),
+          portfolio: data.filter(item => item.hidden !== 'TRUE')
         }
       };
     }
@@ -33,7 +30,8 @@
   {#each portfolio as project}
     {#if project.view == 'FEATURED' }
 
-      <a href="{project.url ? project.url : project.dev}" target="_blank" class="flex relative aspect-video rounded-xl overflow-hidden group">
+ <!-- <a href="{project.url ? project.url : project.dev}" target="_blank" class="flex relative aspect-video rounded-xl overflow-hidden group"> -->
+      <a href="{'/portfolio/' + project.id}" class="flex relative aspect-video rounded-xl overflow-hidden group">
         <img class="transition absolute inset-0 w-full h-full object-cover object-center scale-110 group-hover:scale-100" src="{ project.img ? project.img : 'https://dummyimage.com/600x360' }" alt="{project.name}">
         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-75">{project.name}</div>
       </a>

@@ -37,13 +37,13 @@ class="{CLASS || ''} flex items-center justify-center h-9 w-9 sun-moon relative 
   {#if isDark}
     <img in:scale="{{ duration: 400, start: 0, end: 1, opacity: 1 }}"  
          class="absolute sun invert" 
-         src="icons/sun.svg" 
+         src="/icons/sun.svg" 
          alt="Light Mode" />
 
   {:else}
     <img in:fly="{{ y: 20, duration: 400 }}" 
          class="absolute moon" 
-         src="icons/moon.svg" 
+         src="/icons/moon.svg" 
          alt="Dark Mode" />
   {/if}
 </button>
