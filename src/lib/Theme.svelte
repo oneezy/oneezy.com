@@ -29,7 +29,7 @@
 </script>
 
 <button
-  class="{CLASS || ''} flex items-center justify-center h-9 w-9 sun-moon relative"
+class="{CLASS || ''} flex items-center justify-center h-9 w-9 sun-moon relative rounded-full"
   aria-label="Toggle Dark Mode"
   aria-live="polite"
   on:click={toggleDarkMode}>

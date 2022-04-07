@@ -2,6 +2,7 @@
   import Nav from '$lib/Nav.svelte';
   import Icon from '$lib/Logo/Icon.svelte';
   import { fade, fly, scale} from 'svelte/transition';
+
 	let CLASS;
 	export { CLASS as class };
 
@@ -38,7 +39,7 @@
 
 
 {#if navOpen}
-  <div class="mobile-nav bg-white dark:bg-black fixed inset-0 z-10 flex flex-col items-center justify-center gap-10 w-full h-full" in:fade out:fade on:click={closeNav}>
+  <div in:fade out:fade on:click={closeNav} class="mobile-nav bg-white dark:bg-black fixed inset-0 z-10 flex flex-col items-center justify-center gap-10 w-full h-full">
       <button on:click={closeNav}
               class="{CLASS || ''} flex items-center justify-center h-9 w-9 z-10 absolute right-10 top-6" 
               aria-label="Close Button" 

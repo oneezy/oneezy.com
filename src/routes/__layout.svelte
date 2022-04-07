@@ -31,6 +31,7 @@
   import Icon from "$lib/Logo/Icon.svelte";
   import Theme from "$lib/Theme.svelte";
   import Nav from "$lib/Nav.svelte";
+  import Social from "$lib/Social.svelte";
   export let url;
   let device;
 
@@ -48,21 +49,21 @@
 
 {#if $page.url.pathname != '/' }
 
-    <Header class="p-4 md:p-8">
-      {#if $md}
-      <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
-        <Menu slot="left" />
-        <Icon slot="center" />
-        <Theme slot="right" />
-      </HeaderContainer>
-      {:else}
-      <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
-        <Icon slot="left" />
-        <Nav slot="center" />
-        <Theme slot="right" />
-      </HeaderContainer>
-      {/if}
-    </Header>
+  <Header class="p-4 md:p-8">
+    {#if $md}
+    <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
+      <Menu slot="left" />
+      <Icon slot="center" />
+      <Theme slot="right" />
+    </HeaderContainer>
+    {:else}
+    <HeaderContainer class="max-w-screen-xl rounded-full py-2 px-4 md:py-4 md:px-8">
+      <Icon slot="left" />
+      <Nav slot="center" />
+      <Theme slot="right" />
+    </HeaderContainer>
+    {/if}
+  </Header>
 
 {/if}
 
@@ -72,3 +73,9 @@
   class="{ $page.url.pathname != '/' ? 'py-56' : '' }">
   <slot />
 </Transition>
+
+{#if $page.url.pathname != '/' }
+<footer class="container mx-auto p-4 md:p-8 sticky top-[100vh]">
+  <Social />
+</footer>
+{/if}
