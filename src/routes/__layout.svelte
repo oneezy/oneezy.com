@@ -32,7 +32,7 @@
   </HeaderContainer>
 </Header>
 
-<h1>2. __layout@root</h1>
+<h1>layout@root</h1>
 <main>
   <slot />
 </main>

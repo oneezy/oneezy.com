@@ -1,4 +1,4 @@
 
 
-<h1>1. __layout-root</h1>
+<h1>layout-root</h1>
 <slot />
