@@ -3,6 +3,6 @@
   import { fly } from 'svelte/transition';
 </script>
 
-<main in:fly={{y:50, duration: 500, delay: 500}} out:fly={{duration: 500}}>
+<main in:fly={{ y: 50, duration: 500, delay: 1000 }} out:fly={{ duration: 500 }}>
   <Hero />
 </main> 
