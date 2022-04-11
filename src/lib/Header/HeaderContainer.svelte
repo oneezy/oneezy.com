@@ -13,6 +13,8 @@
 
 {:else}
 
-  <slot />
+  <div class="header-container container mx-auto {CLASS || ''}">
+    <slot />  
+  </div>
 
 {/if}

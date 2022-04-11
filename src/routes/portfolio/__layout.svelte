@@ -1,3 +1,0 @@
-yooo!
-wqer
-<slot></slot>

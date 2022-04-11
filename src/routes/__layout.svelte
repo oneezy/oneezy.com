@@ -13,10 +13,6 @@
   <meta property="fb:admins" content="1271441153" />
 </svelte:head>
 
-<script context="module">
-  export const load = async ({ url }) => ({ props: { url } });
-</script>
-
 <script>
 	import { mediaQuery } from '$stores/media';
 	import { screenH, scrollY, scrollDir, scrollUp, scrollDown, scrollTop, scrollBottom } from '$stores/device.js';
@@ -32,22 +28,20 @@
   import Theme from "$lib/Theme.svelte";
   import Nav from "$lib/Nav.svelte";
   import Social from "$lib/Social.svelte";
-  export let url;
-  let device;
 
 	const sm = mediaQuery('(min-width: 0px) and (max-width: 767px)');
 	const md = mediaQuery('(min-width: 0px) and (max-width: 1024px)');
   import '../app.css';
 </script>
 
-<Device device="hidden" /> 
+<Device /> 
 <BG />
 
 {#if !$md}
   <Scrollbar />
 {/if}
 
-{#if $page.url.pathname != '/' }
+{#if $page.url.pathname !== '/' && !$page.url.pathname.startsWith('/portfolio/')}
 
   <Header class="p-4 md:p-8">
     {#if $md}
@@ -67,14 +61,12 @@
 
 {/if}
 
-<Transition 
-  {url}
-  id="{ $page.routeId == '' ? 'home' : $page.routeId }" 
-  class="{ $page.url.pathname != '/' ? 'py-56' : '' }">
+<!-- <main class="{ $page.url.pathname !== '/' && !$page.url.pathname.startsWith('/portfolio/') ? 'py-40  md:py-56' : '' }"> -->
+<main>
   <slot />
-</Transition>
+</main>
 
-{#if $page.url.pathname != '/' }
+{#if $page.url.pathname !== '/' }
 <footer class="container mx-auto p-4 md:p-8 sticky top-[100vh]">
   <Social />
 </footer>
