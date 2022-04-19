@@ -32,4 +32,14 @@
   /* Active Header */
   html:not(.nav-open) header.active > .header-container { background: white; filter: invert(1); }
   html.dark:not(.nav-open) header.active > .header-container { background: black; filter: invert(1); }
+
+  .button {
+    @apply px-8 py-3 border-4 border-black bg-black text-white font-medium text-3xl leading-tight uppercase rounded-full shadow-md hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .button-outline {
+    @apply button bg-black/80 hover:bg-black;
+  }
 }
+
+

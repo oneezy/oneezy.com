@@ -6,7 +6,7 @@
     if(res.ok) {
       return {
         props: { 
-          portfolio: data.filter(item => item.hidden !== 'TRUE')
+          portfolio: data.filter(item => item.view !== 'HIDDEN')
         }
       };
     }
@@ -16,12 +16,33 @@
       };
     }
   }
+
+  // convert string to kebab case
+  function projectName(str) {
+    return str && str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('-');
+  }
 </script>
 
 <script>
   import { fade, fly } from 'svelte/transition';
   export let portfolio;
 </script>
+
+
+<svelte:head>
+  <title>Portfolio | Oneezy</title>
+  <!-- <meta name="description" content="{project.description}"> -->
+
+  <!-- 
+  <meta property="og:url" content="http://www.oneezy.com/index.html" />
+  <meta property="og:title" content="{project.name}" />
+  <meta property="og:description" content="{project.description}" />
+  <meta property="og:image" content="{project.name}" /> -->
+</svelte:head>
+
 
 <main class="py-40  md:py-56" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fade>
   <div class="prose lg:prose-xl mx-auto">
@@ -30,15 +51,14 @@
 
   <div class="portfolio-projects container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {#each portfolio as project}
-      {#if project.view == 'FEATURED' }
 
   <!-- <a href="{project.url ? project.url : project.dev}" target="_blank" class="flex relative aspect-video rounded-xl overflow-hidden group"> -->
         <a href="/portfolio/{project.id}" sveltekit:prefetch class="flex relative aspect-video rounded-xl overflow-hidden group">
-          <img class="transition absolute inset-0 w-full h-full object-cover object-center scale-110 group-hover:scale-100" src="{ project.img ? project.img : 'https://dummyimage.com/600x360' }" alt="{project.name}">
+          <!-- <img class="transition absolute inset-0 w-full h-full object-cover object-center scale-110 group-hover:scale-100" src="{ project.img ? project.img : 'https://dummyimage.com/600x360' }" alt="{project.name}"> -->
+          <img class="transition absolute inset-0 w-full h-full object-cover object-center group-hover:scale-100" src="/portfolio/{projectName(project.name)}/img.png" alt="{project.name}">
           <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-75">{project.name}</div>
         </a>
 
-      {/if}
     {/each}
   </div>
 </main>
