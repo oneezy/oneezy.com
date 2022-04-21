@@ -25,6 +25,7 @@
 
 <script>
   import { fly } from 'svelte/transition';
+  import { kebabCase } from '$lib/utils/utils.js';
   export let experience;
 </script>
 
@@ -39,12 +40,12 @@
       {#if company.company }
           <div class="mx-auto prose dark:prose-invert lg:prose-xl flex items-center gap-8 justify-center border-b border-b-slate-300 dark:border-b-slate-800 last:border-b-0 px-8">
             <div class="not-prose">
-              <img class="w-20 h-20 not-prose" src="{company.img ? company.img : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPKlnRqvBIvTmisfEsjnp9eXKnDwccBtz2pQ&usqp=CAU'}" alt="{company.company}" />
+              <img class="w-20 h-20 not-prose dark:invert" src="experience/{ kebabCase(company.company) }.svg" alt="{company.company}" />
             </div>
             
             <div class="flex flex-col">
               <h3 class="text-black dark:text-white m-0 lg:m-0">{company.company}</h3>
-              <span class="text-slate-500">{ format(company.highlight) }</span>
+              <span class="text-slate-500 dark:text-slate-400">{ format(company.highlight) }</span>
             </div>
 
             <div class="overflow-hidden">

@@ -80,8 +80,8 @@
       <p class="text-center not-prose">{project.description}</p>
 
       <div class="flex items-center justify-center gap-4 relative not-prose my-12">
-        <a href="{project.url}" target="_blank" class="button">DEMO</a>
-        <a href="{project.github}" target="_blank" class="button">CODE</a>
+        <a href="{project.url}" target="_blank" class="button dark:invert">DEMO</a>
+        <a href="{project.github}" target="_blank" class="button dark:invert">CODE</a>
       </div>
       
       <ul>
