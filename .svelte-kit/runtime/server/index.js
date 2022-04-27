@@ -1147,7 +1147,8 @@ async function render_response({
 	let rendered;
 
 	let is_private = false;
-	let maxage;
+	/** @type {import('types').NormalizedLoadOutputCache | undefined} */
+	let cache;
 
 	if (error) {
 		error.stack = options.get_stack(error);
@@ -1163,9 +1164,8 @@ async function render_response({
 			if (fetched && page_config.hydrate) serialized_data.push(...fetched);
 			if (props) shadow_props = props;
 
-			if (uses_credentials) is_private = true;
-
-			maxage = loaded.maxage;
+			cache = loaded?.cache;
+			is_private = cache?.private ?? uses_credentials;
 		});
 
 		const session = writable($session);
@@ -1179,7 +1179,7 @@ async function render_response({
 				session: {
 					...session,
 					subscribe: (fn) => {
-						is_private = true;
+						is_private = cache?.private ?? true;
 						return session.subscribe(fn);
 					}
 				},
@@ -1366,8 +1366,8 @@ async function render_response({
 			http_equiv.push(csp_headers);
 		}
 
-		if (maxage) {
-			http_equiv.push(`<meta http-equiv="cache-control" content="max-age=${maxage}">`);
+		if (cache) {
+			http_equiv.push(`<meta http-equiv="cache-control" content="max-age=${cache.maxage}">`);
 		}
 
 		if (http_equiv.length > 0) {
@@ -1388,8 +1388,8 @@ async function render_response({
 		etag: `"${hash(html)}"`
 	});
 
-	if (maxage) {
-		headers.set('cache-control', `${is_private ? 'private' : 'public'}, max-age=${maxage}`);
+	if (cache) {
+		headers.set('cache-control', `${is_private ? 'private' : 'public'}, max-age=${cache.maxage}`);
 	}
 
 	if (!options.floc) {
@@ -1915,6 +1915,19 @@ var splitCookiesString_1 = setCookie.exports.splitCookiesString = splitCookiesSt
  * @returns {import('types').NormalizedLoadOutput}
  */
 function normalize(loaded) {
+	// TODO remove for 1.0
+	// @ts-expect-error
+	if (loaded.fallthrough) {
+		throw new Error(
+			'fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching'
+		);
+	}
+
+	// TODO remove for 1.0
+	if ('maxage' in loaded) {
+		throw new Error('maxage should be replaced with cache: { maxage }');
+	}
+
 	const has_error_status =
 		loaded.status && loaded.status >= 400 && loaded.status <= 599 && !loaded.redirect;
 	if (loaded.error || has_error_status) {
@@ -2032,7 +2045,7 @@ function normalize_path(path, trailing_slash) {
 
 	if (trailing_slash === 'never') {
 		return path.endsWith('/') ? path.slice(0, -1) : path;
-	} else if (trailing_slash === 'always' && /\/[^./]+$/.test(path)) {
+	} else if (trailing_slash === 'always' && !path.endsWith('/')) {
 		return path + '/';
 	}
 
@@ -2411,14 +2424,6 @@ async function load_node({
 			// TODO do we still want to enforce this now that there's no fallthrough?
 			throw new Error(`load function must return a value${options.dev ? ` (${node.entry})` : ''}`);
 		}
-
-		// TODO remove for 1.0
-		// @ts-expect-error
-		if (loaded.fallthrough) {
-			throw new Error(
-				'fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching'
-			);
-		}
 	} else if (shadow.body) {
 		loaded = {
 			props: shadow.body
@@ -2787,7 +2792,7 @@ async function respond$1(opts) {
 
 	let stuff = {};
 
-	ssr: if (resolve_opts.ssr) {
+	ssr: {
 		for (let i = 0; i < nodes.length; i += 1) {
 			const node = nodes[i];
 
@@ -3093,20 +3098,6 @@ const default_transform = ({ html }) => html;
 async function respond(request, options, state) {
 	let url = new URL(request.url);
 
-	const normalized = normalize_path(url.pathname, options.trailing_slash);
-
-	if (normalized !== url.pathname && !state.prerender?.fallback) {
-		return new Response(undefined, {
-			status: 301,
-			headers: {
-				location:
-					// ensure paths starting with '//' are not treated as protocol-relative
-					(normalized.startsWith('//') ? url.origin + normalized : normalized) +
-					(url.search === '?' ? '' : url.search)
-			}
-		});
-	}
-
 	const { parameter, allowed } = options.method_override;
 	const method_override = url.searchParams.get(parameter)?.toUpperCase();
 
@@ -3173,6 +3164,22 @@ async function respond(request, options, state) {
 				params = decode_params(matched);
 				break;
 			}
+		}
+	}
+
+	if (route?.type === 'page') {
+		const normalized = normalize_path(url.pathname, options.trailing_slash);
+
+		if (normalized !== url.pathname && !state.prerender?.fallback) {
+			return new Response(undefined, {
+				status: 301,
+				headers: {
+					location:
+						// ensure paths starting with '//' are not treated as protocol-relative
+						(normalized.startsWith('//') ? url.origin + normalized : normalized) +
+						(url.search === '?' ? '' : url.search)
+				}
+			});
 		}
 	}
 
