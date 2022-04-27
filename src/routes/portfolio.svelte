@@ -16,17 +16,10 @@
       };
     }
   }
-
-  // convert string to kebab case
-  function projectName(str) {
-    return str && str
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map(x => x.toLowerCase())
-    .join('-');
-  }
 </script>
 
 <script>
+  import { page } from '$app/stores';
   import { fade, fly } from 'svelte/transition';
   import { kebabCase } from '$lib/utils/utils.js';
   export let portfolio;
@@ -35,29 +28,25 @@
 
 <svelte:head>
   <title>Portfolio | Oneezy</title>
-  <!-- <meta name="description" content="{project.description}"> -->
-
-  <!-- 
-  <meta property="og:url" content="http://www.oneezy.com/index.html" />
-  <meta property="og:title" content="{project.name}" />
-  <meta property="og:description" content="{project.description}" />
-  <meta property="og:image" content="{project.name}" /> -->
+  <meta name="description" content="The portfolio for Justin O'Neill">
+  
+  <meta property="og:url" content="{$page.url.href}" />
+  <meta property="og:title" content="Portfolio | Oneezy" />
+  <meta property="og:description" content="The portfolio for Justin O'Neill" />
+  <meta property="og:image" content="{$page.url.origin}/portfolio/og.png" />
 </svelte:head>
 
-
-<main class="py-40  md:py-56" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fade>
+<main class="py-40 md:py-56" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fade>
   <div class="prose lg:prose-xl mx-auto">
     <h1 class="text-black dark:text-white pb-10 relative mx-auto text-center">Portfolio</h1>
   </div>
 
-  <div class="portfolio-projects container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="portfolio-projects container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {#each portfolio as project}
 
-  <!-- <a href="{project.url ? project.url : project.dev}" target="_blank" class="flex relative aspect-video rounded-xl overflow-hidden group"> -->
         <a href="/portfolio/{project.id}" sveltekit:prefetch class="flex relative aspect-video rounded-xl overflow-hidden group">
-          <!-- <img class="transition absolute inset-0 w-full h-full object-cover object-center scale-110 group-hover:scale-100" src="{ project.img ? project.img : 'https://dummyimage.com/600x360' }" alt="{project.name}"> -->
           <img class="transition absolute inset-0 w-full h-full object-cover object-center group-hover:scale-100" src="/portfolio/{ kebabCase(project.name) }/img.png" alt="{project.name}">
-          <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-75">{project.name}</div>
+          <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-75"></div>
         </a>
 
     {/each}

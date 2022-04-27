@@ -19,28 +19,23 @@
 </script>
 
 <script>
+  import { page } from '$app/stores';
+  import { kebabCase } from '$lib/utils/utils.js';
 	import { scrollY } from '$stores/device.js';
   import { fly, fade, scale } from 'svelte/transition';
   import { backIn } from 'svelte/easing';
   export let portfolio;
-  
-  function projectName(str) {
-    return str && str
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map(x => x.toLowerCase())
-    .join('-');
-  }
 </script>
 
 <svelte:head>
   {#each portfolio as project}
-    <title>{project.name}</title>
+    <title>{project.name} | Oneezy</title>
     <meta name="description" content="{project.description}">
 
-    <meta property="og:url" content="http://www.oneezy.com/index.html" />
-    <meta property="og:title" content="{project.name}" />
+    <meta property="og:url" content="{$page.url.href}" />
+    <meta property="og:title" content="{project.name} | Oneezy" />
     <meta property="og:description" content="{project.description}" />
-    <meta property="og:image" content="{project.name}" />
+    <meta property="og:image" content="{$page.url.origin}/portfolio/{kebabCase(project.name)}/og.png" />
   {/each}
 </svelte:head>
 
@@ -51,24 +46,21 @@
   </a>
 </div>
 
-<main in:scale={{ start: 1.1, duration: 1000, delay: 500}} out:fade class="h-[200vh]">
+<main in:scale={{ start: 1.1, duration: 1000, delay: 500}} out:fade>
   {#each portfolio as project}
 
     <section class="w-full h-[50vh] relative flex flex-col items-center justify-center overflow-hidden bg-black">
       <!-- BG Cover -->
-      <img 
-           style:object-position={ `50% ${ $scrollY * -.05 }px` }
-           class="object-cover object-top w-full h-full absolute z-0" 
-           src="/portfolio/{projectName(project.name)}/cover.png" 
+      <img class="object-cover object-center w-full h-full absolute inset-0 z-0" 
+           src="/portfolio/{kebabCase(project.name)}/cover.png" 
            alt="{project.name}" />
 
 
       <!-- Logo + Buttons -->
-      <!-- <div in:fly={{ y: 100, duration: 1000, opacity: 1, delay: 500 }} out:fade   -->
         <div style:transform={ `translateY(${ $scrollY * -.5 }px)` }
              class="flex flex-col items-center justify-center">
 
-             <img class="w-full" src="/portfolio/{projectName(project.name)}/logo.png" alt="{project.name}" />
+             <img class="w-full" src="/portfolio/{kebabCase(project.name)}/logo.png" alt="{project.name}" />
 
       </div>
     </section>
