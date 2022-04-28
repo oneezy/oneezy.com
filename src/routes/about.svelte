@@ -1,4 +1,5 @@
 <script>
+  import TOC from '$lib/TOC.svelte';
   import { page } from '$app/stores';
   import { fly } from 'svelte/transition';
 </script>
@@ -14,7 +15,7 @@
 </svelte:head>
 
 <main class="py-40 md:py-56" in:fly={{ y:50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
-  <div class="prose lg:prose-xl container">
+  <div class="prose dark:prose-invert lg:prose-xl container">
     <h1 class="text-black dark:text-white pb-10 relative text-center">About</h1>
     <div class="rounded-full overflow-hidden flex items-center justify-center w-48 h-48 mx-auto">
       <img class="w-full h-full object-cover object-center" src="/oneezy.png" alt="Justin O'Neill">
@@ -34,11 +35,29 @@
 
     </div>
 
-    <p class="dark:text-slate-400">
+    <p class="text-slate-700 dark:text-slate-300">
       I'm a self-taught Frontend Developer and UI/UX Designer with over 10 years experience in the industry. 
       I have a passion for creating performant web apps that work cross browser and fit to any device. 
       I love the variety of projects I get to work on- from branding, to cryptocurrency startups, to custom web fonts.
       Interested in working together or just want to say what up? Reach out!
     </p>
+      
+    <div class="w-full md:w-3/4 my-12 mx-auto">
+      <TOC>
+        <slot slot="key">email</slot>
+        <slot slot="value">justinoneill2007 (at) gmail.com</slot>
+        <!-- <span slot="value" class="linktext font-medium">justinoneill2007 (at) gmail.com</span> -->
+      </TOC>
+
+      <TOC>
+        <slot slot="key">github</slot>
+        <a href="https://github.com/oneezy" target="_blank" slot="value" class="linktext">@oneezy</a>
+      </TOC>
+
+      <TOC>
+        <slot slot="key">twitter</slot>
+        <a href="https://twitter.com/oneeezy" target="_blank" slot="value" class="linktext">@oneeezy</a>
+      </TOC>
+    </div>
   </div>
 </main>

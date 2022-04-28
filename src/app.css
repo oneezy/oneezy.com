@@ -54,6 +54,21 @@
   .dark .img-icon {
     opacity: .5; filter: invert(48%) sepia(25%) saturate(418%) hue-rotate(176deg) brightness(86%) contrast(84%);
   }
+
+  .linktext {
+    @apply 
+      text-transparent bg-clip-text bg-gradient-to-r 
+      from-pink-600 
+      via-yellow-500
+      to-green-500
+      
+      dark:from-sky-400 
+      dark:via-purple-500 
+      dark:to-pink-500;
+  }
+
+  .dark .linktext {
+  }
 }
 
 

@@ -19,6 +19,7 @@
 </script>
 
 <script>
+  import TOC from '$lib/TOC.svelte';
   import { page } from '$app/stores';
   import { kebabCase } from '$lib/utils/utils.js';
 	import { scrollY } from '$stores/device.js';
@@ -67,9 +68,9 @@
 
 
 
-    <div class="prose lg:prose-xl mx-auto my-8">
+    <div class="container prose lg:prose-xl mx-auto my-8">
       <h1 class="text-black dark:text-white pt-6 relative mx-auto text-center" style="margin-bottom: 0;">{project.name}</h1>
-      <p class="text-center not-prose">{project.description}</p>
+      <p class="text-center text-slate-700 dark:text-slate-400">{project.description}</p>
 
       <div class="flex items-center justify-center gap-4 relative not-prose my-12">
         {#if project.demo}
@@ -80,40 +81,28 @@
         {/if}
       </div>
       
-      <ul>
-        <li>
-          <b>type</b>
-          <span>{project.type}</span>
-        </li>
-        <li>
-          <b>category</b>
-          <span>{project.category}</span>
-        </li>
-        <li>
-          <b>status</b>
-          <span>{project.status}</span>
-        </li>
-        <li>
-          <b>date</b>
-          <span>{project.date}</span>
-        </li>
-        <li>
-          <b>url</b>
-          <span>{project.url}</span>
-        </li>
-        <li>
-          <b>dev</b>
-          <span>{project.dev}</span>
-        </li>
-        <li>
-          <b>github</b>
-          <span>{project.github}</span>
-        </li>
-        <li>
-          <b>npm</b>
-          <span>{project.npm}</span>
-        </li>
-      </ul>
+      <div class="w-full md:w-3/4 mx-auto">
+        <TOC>
+          <slot slot="key">type</slot>
+          <slot slot="value">{project.type}</slot>
+        </TOC>
+        
+        <TOC>
+          <slot slot="key">category</slot>
+          <slot slot="value">{project.category}</slot>
+        </TOC>
+        
+        <TOC>
+          <slot slot="key">status</slot>
+          <slot slot="value">{project.status}</slot>
+        </TOC>
+        
+        <TOC>
+          <slot slot="key">date released</slot>
+          <slot slot="value">{project.date}</slot>
+        </TOC>
+
+      </div>
     </div>
 
   {/each}
