@@ -38,7 +38,7 @@
   <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Experience | Oneezy" />
   <meta property="og:description" content="Justin's Work Experience and mad skills" />
-  <meta property="og:image" content="{$page.url.origin}/experience/og.png" />
+  <meta property="og:image" content="{$page.url.origin}/portfolio/og.png" />
 </svelte:head>
 
 <div class="py-40  md:py-56" in:fly={{y:50, duration: 500, delay: 500}} out:fly={{duration: 500}}>
