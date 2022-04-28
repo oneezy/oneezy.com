@@ -8,7 +8,6 @@
   <title>Contact | Oneezy</title>
   <meta name="description" content="I'm a self-taught Frontend Developer and UI/UX Designer with over 10 years experience in the industry. I have a passion for creating performant web apps that work cross browser and fit to any device.">
   
-  <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Contact | Oneezy" />
   <meta property="og:description" content="I'm a self-taught Frontend Developer and UI/UX Designer with over 10 years experience in the industry. I have a passion for creating performant web apps that work cross browser and fit to any device." />
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />

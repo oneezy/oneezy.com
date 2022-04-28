@@ -35,13 +35,12 @@
   <title>Experience | Oneezy</title>
   <meta name="description" content="Justin's Work Experience and mad skills">
   
-  <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Experience | Oneezy" />
   <meta property="og:description" content="Justin's Work Experience and mad skills" />
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
 </svelte:head>
 
-<div class="py-40  md:py-56" in:fly={{y:50, duration: 500, delay: 500}} out:fly={{duration: 500}}>
+<div class="py-40 md:py-56" in:fly={{y:50, duration: 500, delay: 500}} out:fly={{duration: 500}}>
   <div class="prose lg:prose-xl mx-auto">
     <h1 class="text-black dark:text-white pb-10 relative mx-auto text-center">Experience</h1>
   </div>

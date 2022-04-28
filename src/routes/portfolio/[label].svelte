@@ -33,12 +33,12 @@
     <title>{project.name} | Oneezy</title>
     <meta name="description" content="{project.description}">
 
-    <meta property="og:url" content="{$page.url.href}" />
     <meta property="og:title" content="{project.name} | Oneezy" />
     <meta property="og:description" content="{project.description}" />
     <meta property="og:image" content="{$page.url.origin}/portfolio/{project.label}/og.png" />
   {/each}
 </svelte:head>
+
 
 <div in:fly={{ x: -40, duration: 1000, delay: 500 }} out:fade class="py-6 px-8 fixed left-0 top-0 z-10">
   <a href="/portfolio" class="bg-black text-white flex gap-3 items-center text-xl uppercase font-medium rounded-full py-4 pl-6 pr-8" sveltekit:prefetch sveltekit:noscroll>

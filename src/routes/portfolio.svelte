@@ -30,7 +30,6 @@
   <title>Portfolio | Oneezy</title>
   <meta name="description" content="The portfolio for Justin O'Neill">
   
-  <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Portfolio | Oneezy" />
   <meta property="og:description" content="The portfolio for Justin O'Neill" />
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
