@@ -52,7 +52,7 @@
       {#if company.company }
           <div class="company mx-auto prose dark:prose-invert lg:prose-xl relative flex items-center gap-8 justify-center border-b border-b-slate-300 dark:border-b-slate-800 last:border-b-0 w-full px-4 py-2">
             <div class="hidden md:block flex-none not-prose">
-              <img class="img-icon w-16 h-16 not-prose dark:invert opacity-75 dark:opacity-60" src="experience/{ kebabCase(company.company) }.svg" alt="{company.company}" />
+              <img class="img-icon w-16 h-16 opacity-75 dark:opacity-60" src="experience/{ kebabCase(company.company) }.svg" alt="{company.company}" />
             </div>
             
             <div class="grow flex-col">
