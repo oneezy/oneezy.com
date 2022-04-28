@@ -20,7 +20,14 @@
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  
+  <meta property="fb:app_id" content="902427283166466" />
+  <meta property="fb:admins" content="1271441153" />
 	<!-- <meta property="og:image:type" content="image/jpeg" /> -->
+  
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="{$page.url.origin}/opengraph.png" />
+	<meta name="twitter:creator" content="@oneeezy" />
 </svelte:head>
 
 <main in:fly={{ y: 50, duration: 500, delay: 1000 }} out:fly={{ duration: 500 }}>
