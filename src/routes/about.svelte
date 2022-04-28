@@ -19,11 +19,22 @@
     <div class="rounded-full overflow-hidden flex items-center justify-center w-48 h-48 mx-auto">
       <img class="w-full h-full object-cover object-center" src="/oneezy.png" alt="Justin O'Neill">
     </div>
+
+    <div class="flex items-center justify-center my-8 gap-8 not-prose">
+      <section class="flex items-center justify-center gap-2">
+        <img class="img-icon w-8 h-8" src="/icons/user.svg" alt="user icon">
+        <h2 class="text-2xl font-semibold text-black dark:text-white">Justin O'Neill</h2>
+      </section>
+      <section class="flex items-center justify-center gap-2">
+        <img class="img-icon w-8 h-8" src="/icons/location.svg" alt="location icon">
+        <span class="text-2xl font-semibold text-black dark:text-white">Planet Earth</span>
+      </section>
+    </div>
     <p class="dark:text-slate-400">
       I'm a self-taught Frontend Developer and UI/UX Designer with over 10 years experience in the industry. 
       I have a passion for creating performant web apps that work cross browser and fit to any device. 
       I love the variety of projects I get to work on- from branding, to cryptocurrency startups, to custom web fonts.
-      Interested in working together or just want to say what up? Please reach out!
+      Interested in working together or just want to say what up? Reach out!
     </p>
   </div>
 </main>

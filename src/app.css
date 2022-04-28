@@ -46,6 +46,14 @@
   .button-outline {
     @apply button bg-black/80 hover:bg-black;
   }
+
+  .img-icon {
+    opacity: .65; filter: invert(71%) sepia(25%) saturate(249%) hue-rotate(175deg) brightness(88%) contrast(85%);
+  }
+
+  .dark .img-icon {
+    opacity: .5; filter: invert(48%) sepia(25%) saturate(418%) hue-rotate(176deg) brightness(86%) contrast(84%);
+  }
 }
 
 

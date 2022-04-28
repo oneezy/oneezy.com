@@ -6,7 +6,7 @@
     if(res.ok) {
       return {
         props: { 
-          portfolio: data.filter(item => item.id == params.id),
+          portfolio: data.filter(item => item.label == params.label),
         }
       };
     }
