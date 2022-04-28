@@ -46,12 +46,11 @@
       <TOC>
         <slot slot="key">email</slot>
         <slot slot="value">justinoneill2007 (at) gmail.com</slot>
-        <!-- <span slot="value" class="linktext font-medium">justinoneill2007 (at) gmail.com</span> -->
       </TOC>
 
       <TOC>
-        <slot slot="key">github</slot>
-        <a href="https://github.com/oneezy" target="_blank" slot="value" class="linktext">@oneezy</a>
+        <slot slot="key">discord</slot>
+        <a href="https://discord.gg/kJcaU3yNEh" target="_blank" slot="value" class="linktext">@oneezy</a>
       </TOC>
 
       <TOC>

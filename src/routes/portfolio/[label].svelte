@@ -36,12 +36,12 @@
     <meta property="og:url" content="{$page.url.href}" />
     <meta property="og:title" content="{project.name} | Oneezy" />
     <meta property="og:description" content="{project.description}" />
-    <meta property="og:image" content="{$page.url.origin}/portfolio/{kebabCase(project.name)}/og.png" />
+    <meta property="og:image" content="{$page.url.origin}/portfolio/{project.label}/og.png" />
   {/each}
 </svelte:head>
 
 <div in:fly={{ x: -40, duration: 1000, delay: 500 }} out:fade class="py-6 px-8 fixed left-0 top-0 z-10">
-  <a href="/portfolio" class="bg-black text-white flex gap-3 items-center text-xl uppercase font-medium rounded-full py-4 pl-6 pr-8" sveltekit:prefetch>
+  <a href="/portfolio" class="bg-black text-white flex gap-3 items-center text-xl uppercase font-medium rounded-full py-4 pl-6 pr-8" sveltekit:prefetch sveltekit:noscroll>
     <img class="invert h-7 w-7" src="/icons/arrow-left.svg" alt="Back Button">
     <span>Back</span>
   </a>
@@ -50,19 +50,14 @@
 <main in:scale={{ start: 1.1, duration: 1000, delay: 500}} out:fade>
   {#each portfolio as project}
 
-    <section class="w-full h-[50vh] relative flex flex-col items-center justify-center overflow-hidden bg-black">
+    <section class="w-full h-[35vh] md:h-[50vh] relative flex flex-col items-center justify-center overflow-hidden bg-black">
+      
       <!-- BG Cover -->
-      <img class="object-cover object-center w-full h-full absolute inset-0 z-0" 
-           src="/portfolio/{kebabCase(project.name)}/cover.png" 
-           alt="{project.name}" />
-
+      <img class="object-full md:object-cover object-center w-full h-full absolute inset-0 z-0" src="/portfolio/{project.label}/cover.png" alt="{project.name}" />
 
       <!-- Logo + Buttons -->
-        <div style:transform={ `translateY(${ $scrollY * -.5 }px)` }
-             class="flex flex-col items-center justify-center">
-
-             <img class="w-full" src="/portfolio/{kebabCase(project.name)}/logo.png" alt="{project.name}" />
-
+      <div style:transform={ `translateY(${ $scrollY * -.5 }px)` } class="flex flex-col items-center justify-center">
+        <img class="w-5/6 lg:w-full" src="/portfolio/{project.label}/logo.png" alt="{project.name}" />
       </div>
     </section>
 

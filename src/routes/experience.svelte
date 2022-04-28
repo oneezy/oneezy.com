@@ -55,13 +55,13 @@
               <img class="img-icon w-16 h-16 opacity-75 dark:opacity-60" src="experience/{ kebabCase(company.company) }.svg" alt="{company.company}" />
             </div>
             
-            <div class="grow flex-col">
+            <div class="grow flex-col flex items-baseline">
               <h3 class="text-black dark:text-white m-0 lg:m-0">{company.company}</h3>
               <span class="text-slate-500 dark:text-slate-400">{company.position}</span>
             </div>
             
-            <div class="flex-none absolute right-4">
-              <b class="justify-self-end flex-auto text-right font-sans font-black ">{company.date_started} – {company.date_ended}</b>
+            <div class="flex-none absolute top-3 md:top-auto right-4">
+              <b class="justify-self-end flex-auto text-right font-sans font-black">{company.date_started} – {company.date_ended}</b>
             </div>
           </div>
       {/if}

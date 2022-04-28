@@ -44,7 +44,7 @@
   <div class="portfolio-projects container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {#each portfolio as project}
 
-        <a href="/portfolio/{project.label}" sveltekit:prefetch class="flex relative aspect-video rounded-xl overflow-hidden group">
+        <a href="/portfolio/{project.label}" sveltekit:prefetch class="flex relative aspect-video rounded-xl overflow-hidden group scale-100">
           <img class="transition absolute inset-0 w-full h-full object-cover object-center group-hover:scale-100" src="/portfolio/{ kebabCase(project.name) }/img.png" alt="{project.name}">
           <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-75"></div>
         </a>
