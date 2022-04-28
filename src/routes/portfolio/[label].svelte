@@ -72,8 +72,12 @@
       <p class="text-center not-prose">{project.description}</p>
 
       <div class="flex items-center justify-center gap-4 relative not-prose my-12">
-        <a href="{project.url}" target="_blank" class="button dark:invert">DEMO</a>
-        <a href="{project.github}" target="_blank" class="button dark:invert">CODE</a>
+        {#if project.demo}
+          <a href="{project.demo}" target="_blank" class="button dark:invert">DEMO</a>
+        {/if}
+        {#if project.code}
+          <a href="{project.code}" target="_blank" class="button dark:invert">CODE</a>
+        {/if}
       </div>
       
       <ul>
