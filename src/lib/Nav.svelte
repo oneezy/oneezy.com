@@ -4,9 +4,9 @@
 
   export let menu = [
     { label: 'home', href: '/'},
-    { label: 'about', href: '/about'},
     { label: 'portfolio', href: '/portfolio'},
-    { label: 'experience', href: '/experience'}
+    { label: 'experience', href: '/experience'},
+    { label: 'contact', href: '/contact'}
   ];
   
 	let CLASS = '';
