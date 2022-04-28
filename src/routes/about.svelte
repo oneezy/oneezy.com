@@ -10,7 +10,7 @@
   <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="About Justin O'Neill | Oneezy" />
   <meta property="og:description" content="I'm a self-taught Frontend Developer and UI/UX Designer with over 10 years experience in the industry. I have a passion for creating performant web apps that work cross browser and fit to any device." />
-  <meta property="og:image" content="{$page.url.origin}/og.png" />
+  <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
 </svelte:head>
 
 <main class="py-40 md:py-56" in:fly={{ y:50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>

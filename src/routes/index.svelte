@@ -11,7 +11,7 @@
   <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Oneezy | Justin O'Neill" />
   <meta property="og:description" content="Let oneezy' guide you towards the path of technology enlightenment." />
-  <meta property="og:image" content="{$page.url.origin}/og.png" />
+  <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
 </svelte:head>
 
 <main in:fly={{ y: 50, duration: 500, delay: 1000 }} out:fly={{ duration: 500 }}>

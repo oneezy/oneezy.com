@@ -33,7 +33,7 @@
   <meta property="og:url" content="{$page.url.href}" />
   <meta property="og:title" content="Portfolio | Oneezy" />
   <meta property="og:description" content="The portfolio for Justin O'Neill" />
-  <meta property="og:image" content="{$page.url.origin}/og.png" />
+  <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
 </svelte:head>
 
 <main class="py-40 md:py-56" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fade>
