@@ -10,6 +10,7 @@ const config = {
       resolve: {
         alias: {
           $lib: resolve('./src/lib'),
+          $data: resolve('./src/data'),
           $routes: resolve('./src/routes'),
           $stores: resolve('./src/stores'),
         }

@@ -1,11 +1,12 @@
 <script>
+	  import { SITE_TITLE, SITE_SEPARATOR, SITE_AUTHOR } from '$data/meta.js';
     import Intro from '$lib/Intro.svelte';
 	  import classes from 'svelte-transition-classes';
 		import { fade, scale, fly, draw } from 'svelte/transition';
 </script>
 
 <Intro> 
-  <h1 class="sr-only">Oneezy | Justin O'Neill</h1>
+  <h1 class="sr-only">{SITE_TITLE} {SITE_SEPARATOR} {SITE_AUTHOR}</h1>
   <svg class="logo-text z-10 relative mx-auto w-3/4 md:w-1/2" viewBox="0 0 314.75 76.5">
     <g id="ONEEZY">
       

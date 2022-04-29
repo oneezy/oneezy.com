@@ -1,4 +1,6 @@
 <script context="module">
+	import { SITE_TITLE, SITE_SEPARATOR } from '$data/meta.js';
+
   export async function load({ fetch, params }) {
     const res = await fetch(`https://opensheet.elk.sh/1822epRj2XCFzLaYxvEIGVkPfF8qYdAbAqWv4bnqUP8A/Portfolio`);
     const data = await res.json();
@@ -30,10 +32,10 @@
 
 <svelte:head>
   {#each portfolio as project}
-    <title>{project.name} | Oneezy</title>
+    <title>{project.name} {SITE_SEPARATOR} {SITE_TITLE}</title>
     <meta name="description" content="{project.description}">
 
-    <meta property="og:title" content="{project.name} | Oneezy" />
+    <meta property="og:title" content="{project.name} {SITE_SEPARATOR} {SITE_TITLE}" />
     <meta property="og:description" content="{project.description}" />
     <meta property="og:image" content="{$page.url.origin}/portfolio/{project.label}/og.png" />
   {/each}

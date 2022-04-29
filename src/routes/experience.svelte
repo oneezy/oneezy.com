@@ -1,4 +1,6 @@
 <script context="module">
+	import { SITE_TITLE, SITE_SEPARATOR } from '$data/meta.js';
+
   export async function load({ fetch }) {
     const res = await fetch(`https://opensheet.elk.sh/1822epRj2XCFzLaYxvEIGVkPfF8qYdAbAqWv4bnqUP8A/Experience`);
     const data = await res.json();
@@ -32,10 +34,10 @@
 
 
 <svelte:head>
-  <title>Experience | Oneezy</title>
+  <title>Experience {SITE_SEPARATOR} {SITE_TITLE}</title>
   <meta name="description" content="Justin's Work Experience and mad skills">
   
-  <meta property="og:title" content="Experience | Oneezy" />
+  <meta property="og:title" content="Experience {SITE_SEPARATOR} {SITE_TITLE}" />
   <meta property="og:description" content="Justin's Work Experience and mad skills" />
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
 </svelte:head>

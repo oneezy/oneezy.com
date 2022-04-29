@@ -1,3 +1,8 @@
+<script context="module">
+	import { SITE_TITLE, SITE_SEPARATOR, SITE_AUTHOR, SITE_DESCRIPTION } from '$data/meta.js';
+	export const prerender = true; // index page is most visited, lets prerender
+</script>
+
 <script>
   import { page } from '$app/stores';
   import Hero from '$lib/Hero.svelte';
@@ -5,13 +10,12 @@
 </script>
 
 <svelte:head>
-  <title>Oneezy | Justin O'Neill</title>
-  <meta name="description" content="Let oneezy' guide you towards the path of technology enlightenment.">
+  <title>{SITE_TITLE} {SITE_SEPARATOR} {SITE_AUTHOR}</title>
+  <meta name="description" content="{SITE_DESCRIPTION}">
 
-  <meta property="og:title" content="Oneezy | Justin O'Neill" />
-  <meta property="og:description" content="Let oneezy' guide you towards the path of technology enlightenment." />
+  <meta property="og:title" content="{SITE_TITLE} {SITE_SEPARATOR} {SITE_AUTHOR}" />
+  <meta property="og:description" content="{SITE_DESCRIPTION}" />
   <meta property="og:image" content="{$page.url.origin}/opengraph.png" />
-	<!-- <meta name="twitter:image" content="{$page.url.origin}/opengraph.png" /> -->
 </svelte:head>
 
 <main in:fly={{ y: 50, duration: 500, delay: 1000 }} out:fly={{ duration: 500 }}>
