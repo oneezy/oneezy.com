@@ -1,6 +1,5 @@
 <script context="module">
 	import { SITE_TITLE, SITE_SEPARATOR, SITE_AUTHOR, SITE_DESCRIPTION } from '$data/meta.js';
-	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
 <script>
