@@ -4,8 +4,8 @@ import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: adapter(),
+  kit: {
+    adapter: adapter(),
     vite: {
       resolve: {
         alias: {
@@ -16,13 +16,17 @@ const config = {
         }
       }
     }
-	},
+  },
 
-	preprocess: [
-		preprocess({
-			postcss: true
-		})
-	]
+  preprocess: [
+    preprocess({
+      postcss: true
+    })
+  ],
+  
+  experimental: { 
+    inspector: true 
+  }
 };
 
 export default config;
